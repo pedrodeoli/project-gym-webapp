@@ -1,0 +1,1 @@
+docker run --name databaseapp -e POSTGRES_PASSWORD=academia -d -p 5432:5432 postgres
