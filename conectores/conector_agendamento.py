@@ -71,7 +71,26 @@ def delete_one(id):
 
     run_sql(sql, value)
 
+# Função que verifica se um agendamento já existe
+def check_existing(atividade_id, membro_id):
 
+    sql = "SELECT * FROM WEBUSER.TB_AGENDAMENTOS WHERE ATIVIDADE = %s AND MEMBRO = %s"
+    values = [atividade_id, membro_id]
+
+    result = run_sql(sql, values)
+
+    if len(result) > 0:
+        return True
+    else:
+        return False
+    
+# Função que deleta um agendamento por atividade e membro
+def delete_by_atividade_membro(atividade_id, membro_id):
+
+    sql = "DELETE FROM WEBUSER.TB_AGENDAMENTOS WHERE ATIVIDADE = %s AND MEMBRO = %s"
+    values = [atividade_id, membro_id]
+
+    run_sql(sql, values)
 
 
 
